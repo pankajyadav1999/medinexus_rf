@@ -1,38 +1,261 @@
-.App {
+/* Global */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Login */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f0f2f5;
+}
+
+.login-box {
+  padding: 40px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  width: 300px;
+}
+
+.login-box h2 {
+  margin-bottom: 20px;
+}
+
+.login-box input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 10px;
+  background: #007bff;
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Layout */
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.top-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  padding: 10px 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.hamburger {
+  font-size: 24px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.layout-body {
+  display: flex;
+  flex: 1;
+}
+
+.sidebar {
+  width: 220px;
+  background-color: #343a40;
+  color: #fff;
+  padding: 20px;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.sidebar-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.sidebar-search {
+  width: 100%;
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: none;
+  margin-bottom: 15px;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-menu > li {
+  margin-bottom: 10px;
+}
+
+.sidebar-link {
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.sidebar-link:hover {
+  background-color: #495057;
+}
+
+.sidebar-submenu {
+  list-style: none;
+  padding-left: 15px;
+  margin-top: 5px;
+}
+
+.sidebar-submenu li {
+  margin-bottom: 5px;
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+/* Dashboard Cards */
+.dashboard-cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.dashboard-card {
+  flex: 1 1 200px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #ccc;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.dashboard-card h4 {
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.dashboard-card p {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 10px 0 0 0;
+}
+
+/* Chart */
+.chart-container {
+  margin-top: 40px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #ccc;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .layout-body {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    height: auto;
+  }
+  .main-content {
+    padding: 10px;
+  }
+  .dashboard-cards {
+    flex-direction: column;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Full page center */
+.login-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #4e73df, #1cc88a);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.App-link {
-  color: #61dafb;
+/* Card */
+.login-card {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  width: 350px;
+  text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Title */
+.login-title {
+  font-size: 28px;
+  color: #4e73df;
+  margin-bottom: 5px;
+}
+
+.login-subtitle {
+  font-size: 14px;
+  color: #6c757d;
+  margin-bottom: 25px;
+}
+
+/* Input */
+.login-input {
+    width: 100%;
+    padding: 10px 0px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.login-input:focus {
+  border-color: #4e73df;
+  outline: none;
+  box-shadow: 0 0 5px rgba(78,115,223,0.5);
+}
+
+/* Button */
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  background: #4e73df;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-btn:hover {
+  background: #2e59d9;
+}
+
+/* Footer / Info */
+.login-footer {
+  font-size: 12px;
+  color: #6c757d;
+  margin-top: 15px;
 }
