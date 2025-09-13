@@ -1,16 +1,15 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../core/hooks/useAuth";
 import "../../App.css";
 
 export default function Login() {
-  const navigate = useNavigate();
+  const { login } = useAuth(); // import login from hook
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = () => {
-    if (username === "Admin" && password === "A@123") {
-      localStorage.setItem("token", "dummy_token"); 
-      navigate("/dashboard"); // Redirect to dashboard
+    if (login(username, password)) { // call login from hook
+      window.location.href = "/dashboard"; // redirect
     } else {
       alert("Invalid credentials");
     }

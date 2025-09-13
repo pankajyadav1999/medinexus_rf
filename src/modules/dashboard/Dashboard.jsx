@@ -1,4 +1,5 @@
 import React from "react";
+import { Outlet, useLocation } from "react-router-dom";
 import MainLayout from "../../layouts/MainLayout/MainLayout";
 import { Bar } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js";
@@ -6,6 +7,8 @@ import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Toolti
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 export default function Dashboard() {
+  const location = useLocation();
+
   const cardData = [
     { title: "Total Patients", value: 120 },
     { title: "Total Doctors", value: 25 },
@@ -24,20 +27,29 @@ export default function Dashboard() {
     ]
   };
 
+  // Check if user is exactly on "/dashboard"
+  const isOnDashboardRoot = location.pathname === "/dashboard";
+
   return (
     <MainLayout>
-      <h2>Hospital Dashboard</h2>
-      <div className="dashboard-cards">
-        {cardData.map((card, idx) => (
-          <div key={idx} className="dashboard-card">
-            <h4>{card.title}</h4>
-            <p>{card.value}</p>
+      {isOnDashboardRoot ? (
+        <>
+          <h2>Hospital Dashboard</h2>
+          <div className="dashboard-cards">
+            {cardData.map((card, idx) => (
+              <div key={idx} className="dashboard-card">
+                <h4>{card.title}</h4>
+                <p>{card.value}</p>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-      <div className="chart-container">
-        <Bar data={chartData} />
-      </div>
+          <div className="chart-container">
+            <Bar data={chartData} />
+          </div>
+        </>
+      ) : (
+        <Outlet />
+      )}
     </MainLayout>
   );
 }
